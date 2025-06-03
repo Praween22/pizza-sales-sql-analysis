@@ -1,0 +1,58 @@
+# 🍕 Pizza Sales SQL Analysis Project
+
+This project explores a pizza sales dataset using structured SQL queries to uncover insights like revenue, popular pizza types, size trends, and time-based order behavior.
+
+---
+
+## 📌 Project Overview
+
+- ✅ Solved 13+ real-world SQL problems
+- 🔍 Used **joins**, **aggregations**, **window functions**, and **CTEs**
+- 📁 Dataset in CSV format included
+- 📊 Performed time-based and category-wise revenue analysis
+- 👨‍💻 Tools used: **MySQL**, **Jupyter Notebook**, **Excel**, and **GitHub**
+
+---
+
+## 📊 Dataset
+
+The dataset used in this project includes the following CSV files:
+
+- `orders.csv` — Order ID, order date, and time  
+- `order_details.csv` — Quantity of each pizza ordered per order  
+- `pizzas.csv` — Pizza ID, size, price, and type ID  
+- `pizza_types.csv` — Pizza name, category (Veg, Non-Veg, etc.)
+
+All files are stored in the [`/dataset`](./dataset/) folder for easy access and reuse.
+
+---
+
+## 🧠 Business Questions Solved
+
+1. Retrieve the total number of orders placed  
+2. Calculate total revenue generated from sales  
+3. Identify the highest-priced pizza  
+4. Most common pizza size  
+5. Top 5 most ordered pizza types  
+6. Category-wise quantity sold  
+7. Order distribution by hour of the day  
+8. Category-wise pizza count  
+9. Average number of pizzas ordered per day  
+10. Top 3 most ordered pizza types by revenue  
+11. % revenue contribution by each category  
+12. Cumulative revenue over time  
+13. Top 3 pizzas by revenue per category  
+
+Each of these is stored as `.sql` files in the [`/queries`](./queries/) folder.
+
+---
+
+## 📌 Sample Query
+
+```sql
+-- Total revenue generated from pizza sales
+SELECT 
+    ROUND(SUM(order_details.quantity * pizzas.price), 2) AS total_sales
+FROM
+    order_details
+JOIN pizzas ON pizzas.pizza_id = order_details.pizza_id;
